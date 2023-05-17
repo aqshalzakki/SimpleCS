@@ -1,17 +1,65 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Simple
 {
     class Simple
     {
-        public string name = "John Doe";
-
         static int Main(string[] args)
         {
             //WhileLoopGuessingGame();
             //ForLoop();
             //Console.WriteLine(GetPow(10, 7));
-            DimensionalArray();
+            //DimensionalArray();
+            //TryCatch();
+
+            //Class and methods 
+            //Student student = new Student("Muhammad Aqshal Zakki", "Software Engineering", 3.4);
+            //Student student2 = new Student("John Doe", "Hardware Engineering", 3.6);
+
+            //Console.WriteLine($"{student.name} has honors? {student.HasHonors()}");
+
+            //Getters and Setters
+            //Player player1 = new Player("Maysomething", 100, 7, "support");
+            //Player player2 = new Player("Ucok_Gorok", 100, 7, "fighter");
+            //Console.WriteLine(player1.Role);
+
+            //Static 
+            //Console.WriteLine(Player.roles[1]);
+            //Console.WriteLine(Util.IsEven(21));
+            //return 0;
+
+            //Inheritance
+            //Vehicle vehicle = new Vehicle(150, 230);
+            //Car car = new Car(200, 100, "Honda");
+            //car.Onward(49);
+
+            //Lambda
+            //Func<string, string> intro = name => { return $"Hello! my name is {name}"; };
+            //Func<int, int> doubleIt = x => x * 2
+            //Console.WriteLine(intro("Aqshal Zakki"));
+            //Console.WriteLine(doubleIt(20));
+
+            //Array List
+            ArrayList users = new ArrayList();
+            users.Add("Aqshal Zakki");
+            users.Add("Asep");
+            users.Add("Ujang");
+            users.Sort();
+            users.Insert(1, "John");
+            Console.WriteLine(users.IndexOf("Ujang"));
+            Console.WriteLine(users[3]);
+
+            foreach (var user in users) {
+                Console.WriteLine($"My name is {user}");
+            }
+
             return 0;
         }
 
@@ -108,9 +156,30 @@ namespace Simple
                 { 7, 2, 4 }
             };
 
-            Console.WriteLine(dimensions[0,2]);
+            Console.WriteLine(dimensions[0, 2]);
         }
 
-        static void 
+        static void TryCatch()
+        {
+            try
+            {
+                Console.Write("Input a number :");
+                int number = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Input another number :");
+                int number2 = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine($"{number} / {number2} is {number / number2}");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally { Console.WriteLine("The program is done"); }
+        }
     }
 }
